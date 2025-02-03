@@ -17,6 +17,7 @@ export const App: React.FC = () => {
     setCurrentPage(1);
   };
 
+  const options = [3, 5, 10, 20];
   const totalItems = items.length;
   const firstItemIndex = (currentPage - 1) * perPage + 1;
   const lastItemIndex = Math.min(currentPage * perPage, totalItems);
@@ -44,10 +45,13 @@ export const App: React.FC = () => {
               handlePerPageChange(newItemsPerPage);
             }}
           >
-            <option value="3">3</option>
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
+            {options.map(option => {
+              return (
+                <option value={option} key={option}>
+                  {option}
+                </option>
+              );
+            })}
           </select>
         </div>
 
